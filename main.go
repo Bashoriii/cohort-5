@@ -2,26 +2,44 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 	"strings"
 )
 
-func main() {
+type Employee struct {
+	index     int
+	nama      string
+	alamat    string
+	pekerjaan string
+	alasan    string
+}
 
-	// 	FizzBuzz -- Mini Challenge 1
-	// for i := 1; i <= 100; i++ {
-	// 	if i%3 == 0 && i%5 == 0 {
-	// 		fmt.Println("FizzBuzz")
-	// 	} else if i%5 == 0 {
-	// 		fmt.Println("Buzz")
-	// 	} else if i%3 == 0 {
-	// 		fmt.Println("Fizz")
-	// 	} else {
-	// 		fmt.Println(i)
-	// 	}
-	// }
+func (e Employee) person() {
+	fmt.Println("Index:", e.index)
+	fmt.Println("Nama:", e.nama)
+	fmt.Println("Alamat:", e.alamat)
+	fmt.Println("Pekerjaan:", e.pekerjaan)
+	fmt.Println("Alasan:", e.alasan)
+}
 
-	// Count a word in sentence -- Mini Challenge 2
-	myVar := "chained together"
+func fizzBuzz(total int) {
+	for i := 1; i <= total; i++ {
+		if i%3 == 0 && i%5 == 0 {
+			fmt.Println("FizzBuzz")
+		} else if i%5 == 0 {
+			fmt.Println("Buzz")
+		} else if i%3 == 0 {
+			fmt.Println("Fizz")
+		} else {
+			fmt.Println(i)
+		}
+	}
+}
+
+// Count a word -- Mini Challenge 2
+func countWord(randomWords string) {
+	myVar := randomWords
 	varSplit := strings.Split(myVar, "")
 
 	for _, arr := range varSplit {
@@ -34,33 +52,54 @@ func main() {
 	}
 
 	fmt.Println(myMap)
+}
 
-	// Define an array
-	// myArr := [3]int{49, 51, 12}
+func main() {
 
-	// for i, arr := range myArr {
-	// 	fmt.Println(i, arr)
-	// }
+	// fizzBuzz(15)
+	// countWord("selamat pagi")
 
-	// // Define a slice
-	// mySlice := []string{"Lala", "Lulu", "Lele", "Lili", "Lolo"}
-	// for i, arr := range mySlice {
-	// 	fmt.Println(i, arr)
-	// }
+	// Mini Challenge 3 -- Struct, Slice, Map, Function
+	employee1 := Employee{
+		index:     0,
+		nama:      "Dadang",
+		alamat:    "Bekasi",
+		pekerjaan: "Kuli",
+		alasan:    "Alasan dadang",
+	}
 
-	// var num int = 4
-	// var num1 *int = &num
+	employee2 := Employee{
+		index:     1,
+		nama:      "Ujang",
+		alamat:    "Jakarta",
+		pekerjaan: "Kuli juga",
+		alasan:    "Alasan ujang",
+	}
 
-	// fmt.Println(num)
-	// fmt.Println(num1)
+	sliceOfData := []Employee{employee1, employee2}
 
-	// mySlice := []int{10, 12, 49, 35, 27, 16}
-	// fmt.Println("Original Slice:", mySlice)
+	if len(os.Args) < 2 {
+		fmt.Println("Masukan argumen!")
+		return
+	}
 
-	// dipilihArr := mySlice[3:6]
-	// fmt.Println("After Selection:", dipilihArr)
+	args := os.Args[1]
 
-	// for _, arr := range mySlice {
-	// 	fmt.Println(arr)
-	// }
+	if index, err := strconv.Atoi(args); err == nil {
+		if index >= 0 && index < len(sliceOfData) {
+			fmt.Println("Data dari index: ")
+			sliceOfData[index].person()
+		} else {
+			fmt.Println("Index tidak valid")
+		}
+
+	} else {
+		for _, j := range sliceOfData {
+			if args == strings.ToLower(j.nama) {
+				fmt.Println("Data dari nama: ")
+				j.person()
+			}
+		}
+	}
+	// Mini Challenge 3 -- Struct, Slice, Map, Function
 }
