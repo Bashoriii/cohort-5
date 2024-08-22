@@ -1,0 +1,37 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        .profile-container {
+            margin-bottom: 2rem;
+        }
+
+        a {
+            border: none;
+            padding: .5rem 1rem;
+            border-radius: 7px;
+            background-color: #dc3545;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Profile Page</h1>
+    <div class="profile-container">
+        <p>Email: {{.Email}}</p>
+        <p>Address: {{.Address}}</p>
+        <p>Job: {{.Job}}</p>
+        <p>Reason to be happy: {{.Reason}}</p>
+    </div>
+    <a href="/">Logout</a>
+</body>
+
+</html>

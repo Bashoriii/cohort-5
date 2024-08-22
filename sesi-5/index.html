@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Webserver</title>
+    <style>
+        .form {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+            gap: 7px;
+        }
+
+        .submitBtn {
+            border: none;
+            padding: .5rem 1rem;
+            border-radius: 7px;
+            background-color: #0d6efd;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Login Form</h1>
+        <form action="/login" method="POST" onsubmit="return validateForm()">
+            <div class="form">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password">
+            </div>
+            <button class="submitBtn" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="avail-emails">
+        <h2>List of available emails</h2>
+        <ul>
+            {{range .}}
+            <li>{{.Email}}</li>
+            {{end}}
+        </ul>
+    </div>
+
+</body>
+
+<script>
+    function validateForm() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+    }
+</script>
+
+</html>
