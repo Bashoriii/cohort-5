@@ -1,19 +1,35 @@
 package main
 
 import (
-	"database/sql"
 	"fmt"
 	"go-sql/database"
 )
-
-var db *sql.DB
 
 func main() {
 	db := database.DatabaseConnection()
 	defer db.Close()
 
-	// CreateProduct()
-	err := database.CreateProduct("Odol Pepsodent")
+	var err error
+	// CREATE A PRODUCT
+	// err = database.CreateProduct("Hand Puff")
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// }
+
+	// UPDATE PRODUCT
+	// err = database.UpdateProduct("Shampoo", "Zebracross")
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// }
+
+	// CREATE A VARIANT
+	// err = database.CreateVariant("Magic White", 8, 3)
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// }
+
+	// UPDATE VARIANT
+	err = database.UpdateVariant(2, "Yellow Black")
 	if err != nil {
 		fmt.Println("Error:", err)
 	}
