@@ -10,6 +10,7 @@ func main() {
 	defer db.Close()
 
 	var err error
+
 	// CREATE A PRODUCT
 	// err = database.CreateProduct("Hand Puff")
 	// if err != nil {
@@ -22,25 +23,33 @@ func main() {
 	// 	fmt.Println("Error:", err)
 	// }
 
-	// CREATE A VARIANT
-	// err = database.CreateVariant("Magic White", 8, 3)
+	// GET PRODUCT BY ID
+	// err = database.GetProductById(3)
 	// if err != nil {
 	// 	fmt.Println("Error:", err)
 	// }
 
-	// UPDATE VARIANT
-	err = database.UpdateVariant(2, "Yellow Black")
+	// CREATE A VARIANT
+	// err = database.CreateVariant("Pink", 9, 4)
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// }
+
+	// UPDATE VARIANT BY ID
+	// err = database.UpdateVariant("Yellow Black", 3)
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// }
+
+	// DELETE VARIANT BY ID
+	// err = database.DeleteVariantById(6)
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// }
+
+	// GET PRODUCT WITH VARIANT BY ID
+	err = database.GetProductWithVariant2(1)
 	if err != nil {
 		fmt.Println("Error:", err)
 	}
 }
-
-// func CreateProduct() {
-// 	query := `INSERT INTO products (name) VALUES ($1)`
-// 	_, err := db.Exec(query, "Odol pepsodent")
-
-// 	if err != nil {
-// 		fmt.Println("Error creating product", err)
-// 	}
-// 	fmt.Println("Product created!")
-// }

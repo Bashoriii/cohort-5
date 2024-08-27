@@ -2,7 +2,6 @@ package database
 
 import (
 	"database/sql"
-	"fmt"
 
 	_ "github.com/lib/pq"
 )
@@ -23,6 +22,6 @@ func DatabaseConnection() *sql.DB {
 		panic(err)
 	}
 
-	fmt.Println("Database connected!")
+	// fmt.Println("Database connected!")
 	return db
 }
